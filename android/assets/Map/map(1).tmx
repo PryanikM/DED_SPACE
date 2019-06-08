@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="2019.01.30" orientation="isometric" renderorder="right-down" width="50" height="50" tilewidth="64" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="isotiles" tilewidth="64" tileheight="64" tilecount="0" columns="0">
+  <image source="mapImage.png" width="640" height="1024"/>
+ </tileset>
+ <layer id="1" name="Tile Layer 1" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+3RsQ3AMBDDwG+dKt5/2XgLMgYLgb1uzcxztn7e92xfUPrHPPIwl/4xjzzMpX/MIw9z6R/zyMNc+sc88jCX/jGPPMylf8wjD3PpH/PIw1z6xzzyMJf+MY88zKV/zCMPc+kf88jD3A8XEWizECcAAA==
+  </data>
+ </layer>
+</map>
