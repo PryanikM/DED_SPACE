@@ -5,30 +5,30 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mygdx.game.loader.A2DAssetManager;
-import com.mygdx.game.loader.assetsScreen;
-import com.mygdx.game.manager.GameMainManager;
-import com.mygdx.game.manager.PreferencesManager;
-import com.mygdx.game.views.MainGame.BuildingBuildScreen;
-import com.mygdx.game.views.ChoiceScreenPlayers;
-import com.mygdx.game.views.DialogScreen;
-import com.mygdx.game.views.EndScreen;
-import com.mygdx.game.views.LoadingScreen;
-import com.mygdx.game.views.MainGame.BuildingRepairScreen;
-import com.mygdx.game.views.MainGame.BuildingsMakeNoScreen;
-import com.mygdx.game.views.MainGame.BuildingsMakeYesScreen;
-import com.mygdx.game.views.MainGame.ChoiseAuxiliaryToolOutingScreen;
-import com.mygdx.game.views.MainGame.GameMainScreen;
-import com.mygdx.game.views.MainGame.GameMenuScreen;
-import com.mygdx.game.views.MainGame.InvScreen;
-import com.mygdx.game.views.MainGame.NextDayScreen;
-import com.mygdx.game.views.MainGame.OutingNotBusyScreen;
-import com.mygdx.game.views.MainGame.OutingYesBusyScreen;
-import com.mygdx.game.views.MainGame.RobotScreen;
-import com.mygdx.game.views.MainGame.playerStateScreen;
-import com.mygdx.game.views.MainScreen;
-import com.mygdx.game.views.MenuScreen;
-import com.mygdx.game.views.PreferencesScreen;
+import com.mygdx.game.Loader.A2DAssetManager;
+import com.mygdx.game.Loader.AssetsScreen;
+import com.mygdx.game.Managers.GameMainManager;
+import com.mygdx.game.Managers.PreferencesManager;
+import com.mygdx.game.Views.MainGame.BuildingBuildScreen;
+import com.mygdx.game.Views.ChoiceScreenPlayers;
+import com.mygdx.game.Views.DialogScreen;
+import com.mygdx.game.Views.EndScreen;
+import com.mygdx.game.Views.LoadingScreen;
+import com.mygdx.game.Views.MainGame.BuildingRepairScreen;
+import com.mygdx.game.Views.MainGame.BuildingsMakeNoScreen;
+import com.mygdx.game.Views.MainGame.BuildingsMakeYesScreen;
+import com.mygdx.game.Views.MainGame.ChoiseAuxiliaryToolOutingScreen;
+import com.mygdx.game.Views.MainGame.GameMainScreen;
+import com.mygdx.game.Views.MainGame.GameMenuScreen;
+import com.mygdx.game.Views.MainGame.InvScreen;
+import com.mygdx.game.Views.MainGame.NextDayScreen;
+import com.mygdx.game.Views.MainGame.OutingNotBusyScreen;
+import com.mygdx.game.Views.MainGame.OutingYesBusyScreen;
+import com.mygdx.game.Views.MainGame.RobotScreen;
+import com.mygdx.game.Views.MainGame.PlayerStateScreen;
+import com.mygdx.game.Views.MainScreen;
+import com.mygdx.game.Views.MenuScreen;
+import com.mygdx.game.Views.PreferencesScreen;
 
 import java.util.ArrayList;
 
@@ -43,7 +43,7 @@ public class MyGdxGame extends Game {
 	private DialogScreen dialogScreen;//экранн с характеристиками игроков
 	private GameMainScreen gameScreen;//главный игровой экран (с ракетой)
 	private Music playingSong;//музыка
-	private playerStateScreen stateScreen;//экран состояния игроков
+	private PlayerStateScreen stateScreen;//экран состояния игроков
 	private BuildingRepairScreen repairScreen;//экран починки зданий
 	private BuildingBuildScreen building;//экран построек зданий и вещей
 	private NextDayScreen dayScreen;//экран, где проигрывается анимация следующего дня
@@ -55,7 +55,7 @@ public class MyGdxGame extends Game {
 	private ChoiseAuxiliaryToolOutingScreen auxiliaryToolOutingScreen;//экран для выбора лопаты и пистолета (вылазка)
 	private InvScreen invScreen;//экран инвентаря
 	private GameMenuScreen gameMenuScreen;//экран меню, во время игры
-	private assetsScreen loadScreen;//экран загрзки
+	private AssetsScreen loadScreen;//экран загрзки
 
 	//для сохранения настроек
 	private Preferences preferencesLoad;
@@ -172,7 +172,7 @@ public class MyGdxGame extends Game {
 	public void changeScreen(int screen){//здесь происходит смена всех экранов
 		switch(screen){
 			case LOAD:
-				if(loadScreen == null) loadScreen = new assetsScreen(this, batch);
+				if(loadScreen == null) loadScreen = new AssetsScreen(this, batch);
 				this.setScreen(loadScreen);
 				break;
 			case MENU:
@@ -224,7 +224,7 @@ public class MyGdxGame extends Game {
 				this.setScreen(building);
 				break;
 			case STATE:
-				if (stateScreen == null) stateScreen = new playerStateScreen(this, gameScreen, batch);
+				if (stateScreen == null) stateScreen = new PlayerStateScreen(this, gameScreen, batch);
 				this.setScreen(stateScreen);
 				break;
 			case REPAIR:
@@ -294,7 +294,7 @@ public class MyGdxGame extends Game {
 	public PreferencesManager getPreferences() {
 		return this.preferences;
 	}
-	public playerStateScreen getPlayerState(){
+	public PlayerStateScreen getPlayerState(){
 		return stateScreen;
 	}
 	public BuildingBuildScreen getBuildingBuildScreen(){
@@ -343,12 +343,6 @@ public class MyGdxGame extends Game {
 	}
 	@Override
 	public void dispose() {
-//		if (menuScreen != null){menuScreen.dispose();}
-//		if (preferencesScreen != null) {preferencesScreen.dispose();}
-//		if (mainScreen != null) {mainScreen.dispose();}
-//		if (dialogScreen != null) {dialogScreen.dispose();}
-//		if (gameScreen != null)	{gameScreen.dispose();}
-//		if (endScreen != null) {endScreen.dispose();}
 	}
 	public void destroy(){
 		if (dialogScreen != null) dialogScreen = null;
